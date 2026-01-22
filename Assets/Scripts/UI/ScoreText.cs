@@ -26,14 +26,18 @@ public class ScoreText : MonoBehaviour
 
     private void OnEnable()
     {
-        gameManager.OnPlay += Play;
-        scoreSystem.OnScoreChanged += updateScore;
+        if (gameManager != null)
+            gameManager.OnPlay += Play;
+        if (scoreSystem != null)
+            scoreSystem.OnScoreChanged += updateScore;
     }
 
     private void OnDisable()
     {
-        gameManager.OnPlay -= Play;
-        scoreSystem.OnScoreChanged -= updateScore;
+        if (gameManager != null)
+            gameManager.OnPlay -= Play;
+        if (scoreSystem != null)
+            scoreSystem.OnScoreChanged -= updateScore;
     }
 
     private void Play()

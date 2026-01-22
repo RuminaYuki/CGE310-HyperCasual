@@ -14,12 +14,14 @@ public class UIOverManager : MonoBehaviour
 
     private void OnEnable()
     {
-        gameManager.OnOver += Over;
+        if (gameManager != null)
+            gameManager.OnOver += Over;
     }
 
     private void OnDisable()
     {
-        gameManager.OnOver -= Over;
+        if (gameManager != null)
+            gameManager.OnOver -= Over;
     }
 
     private void Over()

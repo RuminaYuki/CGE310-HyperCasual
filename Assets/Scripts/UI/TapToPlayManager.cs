@@ -16,12 +16,14 @@ public class TapToPlayManager : MonoBehaviour
 
     private void OnEnable()
     {
-        gameManager.OnPlay += Play;
+        if (gameManager != null)
+            gameManager.OnPlay += Play;
     }
 
     private void OnDisable()
     {
-        gameManager.OnPlay -= Play;
+        if (gameManager != null)
+            gameManager.OnPlay -= Play;
     }
 
     private void Play()
