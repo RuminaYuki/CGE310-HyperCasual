@@ -1,32 +1,19 @@
 using UnityEngine;
 
-[RequireComponent(typeof(MeshRenderer),typeof(MeshFilter))]
+[RequireComponent(typeof(Rigidbody2D))]
 public class Parallax : MonoBehaviour
 {
     [SerializeField] private float speed;
-    private MeshRenderer meshRenderer;
-
-    private bool isCanMove;
+    private Rigidbody2D rb;
 
     private GameManager gameManager;
 
     private void Awake()
     {
-        meshRenderer = GetComponent<MeshRenderer>();
+        rb = GetComponent<Rigidbody2D>();
 
         if (gameManager == null)
             gameManager = FindAnyObjectByType<GameManager>();
-    }
-
-    private void Start()
-    {
-        isCanMove = false;
-    }
-
-    void Update()
-    {
-        if (!isCanMove) return;
-        meshRenderer.material.mainTextureOffset += new Vector2(speed * Time.deltaTime, 0);
     }
 
     private void OnEnable()
@@ -43,6 +30,6 @@ public class Parallax : MonoBehaviour
 
     private void Play()
     {
-        isCanMove = true;
+        rb.linearVelocity = new Vector2(-speed, 0);
     }
 }
