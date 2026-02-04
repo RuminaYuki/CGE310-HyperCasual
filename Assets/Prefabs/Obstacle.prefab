@@ -10,9 +10,9 @@ GameObject:
   m_Component:
   - component: {fileID: 3391219180858012887}
   - component: {fileID: 6713804689948855753}
-  - component: {fileID: 4162102945166051295}
   - component: {fileID: 2025378881231371926}
   - component: {fileID: 1676881592925558907}
+  - component: {fileID: 4162102945166051295}
   m_Layer: 0
   m_Name: ScordingAndSound
   m_TagString: Untagged
@@ -81,19 +81,6 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 0.3, y: 3}
   m_EdgeRadius: 0
---- !u!114 &4162102945166051295
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3578495606782414266}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4bf2840fecb6e2447adfc8fef0c189e2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  getScore: 1
 --- !u!82 &2025378881231371926
 AudioSource:
   m_ObjectHideFlags: 0
@@ -204,6 +191,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   clip: {fileID: 8300000, guid: 695198afd588e70479ec2e00df1c7f7b, type: 3}
+--- !u!114 &4162102945166051295
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3578495606782414266}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4bf2840fecb6e2447adfc8fef0c189e2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  getScore: 1
 --- !u!1 &3579093384241234539
 GameObject:
   m_ObjectHideFlags: 0
@@ -330,7 +330,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 3.29, y: 10.71}
+    oldSize: {x: 2.05625, y: 6.69375}
     newSize: {x: 1.0833334, y: 6.6666665}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -348,7 +348,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3307984127999839257}
   - component: {fileID: 7408434115786170182}
-  - component: {fileID: 2543130667365068462}
+  - component: {fileID: 130198467353566168}
   m_Layer: 0
   m_Name: Obstacle
   m_TagString: Obstacle
@@ -401,7 +401,7 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 6
---- !u!114 &2543130667365068462
+--- !u!114 &130198467353566168
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -410,10 +410,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 5577858396266076025}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5d993fd2610fa754d9f5ff6531bc1185, type: 3}
+  m_Script: {fileID: 11500000, guid: 757119e26c8fd6945a937df87ef3c118, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 2
+  Speed: 2
 --- !u!1 &8953419212287316677
 GameObject:
   m_ObjectHideFlags: 0
@@ -540,7 +540,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 3.29, y: 10.71}
+    oldSize: {x: 2.05625, y: 6.69375}
     newSize: {x: 1.0833334, y: 6.6666665}
     adaptiveTilingThreshold: 0.5
     drawMode: 0

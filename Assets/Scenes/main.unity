@@ -280,7 +280,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 757119e26c8fd6945a937df87ef3c118, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 1
+  Speed: 1
 --- !u!50 &107133479
 Rigidbody2D:
   serializedVersion: 5
@@ -557,6 +557,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 942192eaea6993842b1f68712f8b9827, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  maxPace: 10
+  basePace: 0.01
 --- !u!1 &341612390
 GameObject:
   m_ObjectHideFlags: 0
@@ -718,7 +720,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 757119e26c8fd6945a937df87ef3c118, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 1.25
+  Speed: 1.75
 --- !u!50 &341612396
 Rigidbody2D:
   serializedVersion: 5
@@ -1253,7 +1255,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 757119e26c8fd6945a937df87ef3c118, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 0.75
+  Speed: 1.25
 --- !u!50 &548571223
 Rigidbody2D:
   serializedVersion: 5
@@ -1681,7 +1683,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 757119e26c8fd6945a937df87ef3c118, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 1.25
+  Speed: 1.75
 --- !u!50 &987023529
 Rigidbody2D:
   serializedVersion: 5
@@ -2569,7 +2571,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 757119e26c8fd6945a937df87ef3c118, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 1
+  Speed: 1
 --- !u!50 &1468492856
 Rigidbody2D:
   serializedVersion: 5
@@ -3233,7 +3235,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 757119e26c8fd6945a937df87ef3c118, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 0.75
+  Speed: 1.25
 --- !u!50 &1784367617
 Rigidbody2D:
   serializedVersion: 5

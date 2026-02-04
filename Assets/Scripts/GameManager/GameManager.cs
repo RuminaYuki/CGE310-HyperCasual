@@ -19,6 +19,12 @@ public class GameManager : MonoBehaviour
 
     public bool IsPlaying => CurrentState == GameState.GamePlay;
 
+    [Header("Pacing Game")]
+    [SerializeField] private float maxPace = 10;
+    [SerializeField] private float basePace = 0.01f;
+    private float current;
+    public event Action<float> OnPacing;
+
     private void Awake()
     {
         playerController = FindAnyObjectByType<PlayerController>();
@@ -47,6 +53,11 @@ public class GameManager : MonoBehaviour
                 SetState(GameState.GamePlay);
             }
         }
+
+        if (CurrentState == GameState.GamePlay)
+        {
+            CalculatePacing();
+        }
     }
     private void GameOver()
     {
@@ -65,5 +76,13 @@ public class GameManager : MonoBehaviour
             case GameState.GamePlay: OnPlay?.Invoke(); break;
             case GameState.GameOver: OnOver?.Invoke(); break;
         }
+    }
+
+    private void CalculatePacing()
+    {
+        current += basePace * Time.deltaTime;
+        current = Mathf.Min(current, maxPace);
+        OnPacing?.Invoke(current);
+
     }
 }
