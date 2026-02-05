@@ -1,0 +1,56 @@
+@startuml
+skinparam classAttributeIconSize 0
+
+' ===== PlayerController =====
+class PlayerController {
+  +OnJump : event Action
+  +OnDie  : event Action
+  --
+  -isDeath   : bool
+  -isCanMove : bool
+  --
+  -rb : Rigidbody2D
+  -jumpforce : float
+  -gravity   : float
+  -gameManager : GameManager
+  --
+  -Jump() : void
+  -Death() : void
+  -Play() : void
+}
+
+' ===== PlayerAnimation =====
+class PlayerAnimation {
+  -playerController : PlayerController
+  -rb : Rigidbody2D
+  -animator : Animator
+  --
+  -knockBack : float
+  --
+  -DeathAnimation() : void
+  -JumpAnimation() : void
+}
+
+' ===== PlayerSound =====
+class PlayerSound {
+  -playerController : PlayerController
+  -audioSource : AudioSource
+  --
+  -soundOnJump : AudioClip[*]
+  -soundWhenDeath : AudioClip
+  -lastIndex : int
+  --
+  -SoundOnJump() : void
+  -WhenDeath() : void
+}
+
+class GameManager
+
+' ===== Event subscription (ONE-WAY) =====
+PlayerAnimation ..> PlayerController : listens to\nOnJump / OnDie
+PlayerSound ..> PlayerController : listens to\nOnJump / OnDie
+
+GameManager ..> PlayerController : subscribes\nOnDie -> GameOver()
+PlayerController ..> GameManager : subscribes\nOnPlay -> Play()
+
+@enduml
