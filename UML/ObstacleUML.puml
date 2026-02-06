@@ -1,0 +1,54 @@
+@startuml
+skinparam classAttributeIconSize 0
+
+' ===== MovingObject =====
+class MovingObject {
+  -Speed : float
+  -currentSpeed : float
+  -rb : Rigidbody2D
+  --
+  -gameManager : GameManager
+  --
+  -Play() : void
+  -PacingChange(pace : float) : void
+}
+
+' ===== ObstacleSound =====
+class ObstacleSound {
+  -clip : AudioClip
+  -audioSource : AudioSource
+  --
+  -Awake() : void
+  -OnTriggerEnter2D(collision : Collider2D) : void
+}
+
+' ===== ScoreObstacle =====
+class ScoreObstacle {
+  -getScore : int
+  -scoretrigger : ScoreSystem
+  --
+  -Awake() : void
+  -OnTriggerEnter2D(collision : Collider2D) : void
+}
+
+class ObstaclePrefab
+class GameManager
+class ScoreSystem
+class AudioSource
+class AudioClip
+class Collider2D
+
+' ===== Prefab composition (Obstacle.prefab) =====
+ObstaclePrefab *-- MovingObject
+ObstaclePrefab *-- ObstacleSound
+ObstaclePrefab *-- ScoreObstacle
+
+' ===== Runtime relationships =====
+MovingObject ..> GameManager : subscribes\nOnPlay / OnPacing
+ObstacleSound ..> AudioSource : uses
+ObstacleSound ..> AudioClip : plays
+ObstacleSound ..> Collider2D : trigger input
+ScoreObstacle ..> ScoreSystem : calls Add()
+ScoreObstacle ..> Collider2D : trigger input
+
+@enduml

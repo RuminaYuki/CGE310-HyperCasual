@@ -1,0 +1,60 @@
+@startuml
+skinparam classAttributeIconSize 0
+skinparam linetype ortho
+skinparam roundcorner 12
+skinparam packageStyle rectangle
+left to right direction
+
+' ===== Core =====
+package "Core" {
+  class GameManager
+  class ScoreSystem
+}
+
+package "Player" {
+  class PlayerController
+  class PlayerAnimation
+  class PlayerSound
+}
+
+package "Obstacle / Environment" {
+  class MovingObject
+  class ScriptColumnPool
+  class ScriptRepeatBackground
+  class ObstacleSound
+  class ScoreObstacle
+}
+
+package "UI" {
+  class TapToPlayManager
+  class UIOverManager
+  class ScoreText
+  class TotalScoreText
+}
+
+' ===== Event / Usage relationships (overview) =====
+PlayerAnimation ..> PlayerController : listens to\nOnJump / OnDie
+PlayerSound ..> PlayerController : listens to\nOnJump / OnDie
+GameManager ..> PlayerController : subscribes\nOnDie -> GameOver()
+PlayerController ..> GameManager : subscribes\nOnPlay -> Play()
+
+ScriptColumnPool ..> GameManager : listens to\nOnPlay
+MovingObject ..> GameManager : listens to\nOnPlay / OnPacing
+TapToPlayManager ..> GameManager : listens to\nOnPlay
+UIOverManager ..> GameManager : listens to\nOnOver
+ScoreText ..> GameManager : listens to\nOnPlay
+
+ScoreText ..> ScoreSystem : listens to\nOnScoreChanged
+TotalScoreText ..> ScoreSystem : reads\nScore
+ScoreObstacle ..> ScoreSystem : calls Add()
+
+' ===== Layout helpers (hidden) =====
+GameManager -[hidden]--> ScoreSystem
+PlayerController -[hidden]--> PlayerAnimation
+PlayerController -[hidden]--> PlayerSound
+MovingObject -[hidden]--> ScriptColumnPool
+ObstacleSound -[hidden]--> ScoreObstacle
+TapToPlayManager -[hidden]--> UIOverManager
+ScoreText -[hidden]--> TotalScoreText
+
+@enduml
